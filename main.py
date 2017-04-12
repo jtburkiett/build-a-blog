@@ -43,7 +43,6 @@ class Post(db.Model):
 
 
 class Homepage(Handler):
-
     def get(self):
         posts = db.GqlQuery("SELECT * FROM Post ORDER BY created DESC LIMIT 5")
         self.render("posts.html", posts=posts)
@@ -91,5 +90,5 @@ app = webapp2.WSGIApplication([
     ('/', Homepage),
     ('/all', AllPosts),
     ('/newpost', NewPost),
-    webapp2.Route('/blog/<post_id:\d+>', ViewPostHandler)
+    webapp2.Route('/blog/<id:\d+>', ViewPostHandler)
 ], debug=True)
