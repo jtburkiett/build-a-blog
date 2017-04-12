@@ -4,7 +4,7 @@
         <title>Build-a-blog</title>
         <style type="text/css">
             body {
-                font-family: sans-serif;
+                font-family: Georgia, serif;
                 width: 800px;
                 margin: 0 auto;
                 padding: 10px;
@@ -29,7 +29,7 @@
                 width: 400px;
                 height: 200px;
                 font-size: 17px;
-                font-family: monospace;
+                font-family: Georgia, serif;
             }
 
             input[type=submit] {
@@ -60,6 +60,8 @@
     <body>
         {% block content %}
         {% endblock %}
-        <h3>Click <a href="/newpost">here</a> to create a new post.</h3>
     </body>
+    <br>
+    <h3>Click <a href="/newpost">here</a> to create a new post.</h3><h3>Click <a href="/">here</a> to return to the home page.</h3>
+
 </html>
