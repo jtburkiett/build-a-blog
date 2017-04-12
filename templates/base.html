@@ -3,11 +3,15 @@
     <head>
         <title>Build-a-blog</title>
         <style type="text/css">
+        li {
+            display: inline;
+        }
             body {
                 font-family: Georgia, serif;
                 width: 800px;
                 margin: 0 auto;
                 padding: 10px;
+                text-align: center;
             }
 
             .error {
@@ -60,8 +64,12 @@
     <body>
         {% block content %}
         {% endblock %}
-    </body>
-    <br>
-    <h3>Click <a href="/newpost">here</a> to create a new post.</h3><h3>Click <a href="/">here</a> to return to the home page.</h3>
 
+        <br>
+        <ul>
+            <li><a href="/newpost">HOME</a></li>
+            <li>&#160;&#160;&#160;&#160;</li>
+            <li><a href="/">NEW POST</a></li>
+        </ul>
+    </body>
 </html>
