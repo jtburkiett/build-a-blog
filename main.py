@@ -77,19 +77,19 @@ class NewPost(Handler):
 
 
 class ViewPostHandler(Handler):
-    def get(self, post_id):
-        post = Post.get_by_id(int(post_id))
+    def get(self, id):
+        post = Post.get_by_id(int(id))
 
         if post:
             self.render("singlepost.html", post=post)
         else:
-            error = "No post by that id number."
+            error = "I don't see a post with that number ID."
             self.response.write(error)
 
 
 app = webapp2.WSGIApplication([
     ('/', Homepage),
     ('/all', AllPosts),
-    ('/new', NewPost),
+    ('/newpost', NewPost),
     webapp2.Route('/blog/<post_id:\d+>', ViewPostHandler)
 ], debug=True)
