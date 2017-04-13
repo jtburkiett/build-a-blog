@@ -35,12 +35,10 @@ class Handler(webapp2.RequestHandler):
     def render(self, template, **kw):
         self.write(self.render_str(template, **kw))
 
-
 class Post(db.Model):
     title = db.StringProperty(required = True)
     post = db.TextProperty(required = True)
     created = db.DateTimeProperty(auto_now_add = True)
-
 
 class Homepage(Handler):
     def get(self):
@@ -74,7 +72,6 @@ class NewPost(Handler):
             error = "We need both a title and a post!"
             self.render_front(title, post, error)
 
-
 class ViewPostHandler(Handler):
     def get(self, id):
         post = Post.get_by_id(int(id))
@@ -84,6 +81,8 @@ class ViewPostHandler(Handler):
         else:
             error = "That post does not exist, pal."
             self.response.write(error)
+
+
 
 
 app = webapp2.WSGIApplication([
