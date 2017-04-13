@@ -65,10 +65,10 @@ class NewPost(Handler):
         post = self.request.get("post")
 
         if title and post:
-            a = Post(title = title, post = post)
-            a.put()
+            p = Post(title = title, post = post)
+            p.put()
 
-            self.redirect("/blog/%s" % a.key().id())
+            self.redirect("/blog/%s" % p.key().id())
 
         else:
             error = "We need both a title and a post!"
@@ -82,7 +82,7 @@ class ViewPostHandler(Handler):
         if post:
             self.render("singlepost.html", post=post)
         else:
-            error = "I don't see a post with that number ID."
+            error = "That post does not exist, pal."
             self.response.write(error)
 
 
